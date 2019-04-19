@@ -1,0 +1,78 @@
+Step: build-step-credential-initializer-7w**s:
+
+{"level":"warn","ts":1555691596.506987,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1555691596.507629,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-*****-quickstart-master-kp7wk:
+
+{"level":"warn","ts":1555691598.3807814,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1555691598.6150584,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/*****/quickstart\" @ \"v0.0.1\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-04-19T16:34:34Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:
+time="2019-04-19T16:34:34Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-setup-**-git-credentials:
+
+{"level":"info","msg":"Generated Git credentials file /workspace/xdg_config/git/credentials\n","time":"2019-04-19T16:34:35Z"}
+Step: build-step-build-make-build:
+
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/quickstart main.go
+Step: build-step-build-container-build:
+
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/quickstart"]                   
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+ERROR: logging before flag.Parse: E0419 16:35:01.969083       9 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E0419 16:35:01.973029       9 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/04/19 16:35:02 pushed blob: sha256:dcaf03398f7150c5c78c116d54efc37a730866bd82f9393af1728d1cf81b0a41
+2019/04/19 16:35:02 pushed blob: sha256:4cbf9c5b9026f33db6b30e91ae612d6ae444abbd82737be6f30580ae64a0f21f
+2019/04/19 16:35:02 10.35.250.148:5000/*****/quickstart:0.0.1: digest: sha256:9fe514c3942c8ad6ef4eebbaa6b118f1603b4ce230ab4cfd9e71de6f8acfed21 size: 428
+Step: build-step-build-post-build:
+
+{"level":"info","msg":"no CVE provider running in the current ** namespace so skip adding image to be analysed","time":"2019-04-19T16:35:03Z"}
+Step: build-step-promote-changelog:
+
+{"level":"info","msg":"Converted /workspace/source/charts/quickstart to an unshallow repository\n","time":"2019-04-19T16:35:06Z"}
+{"level":"info","msg":"Generating change log from git ref f59dded072ab3f8790e56ddd3cb6e107a8356e0e =\u003e 94c539d0240c72ac3a85e34dcf2eaa5cd9aaf874\n","time":"2019-04-19T16:35:06Z"}
+{"level":"warning","msg":"Failed to enrich commits with issues: User.jenkins.io \"\" is invalid: metadata.name: Required value: name or generateName is required\n","time":"2019-04-19T16:35:06Z"}
+{"level":"warning","msg":"Failed to enrich commits with issues: User.jenkins.io \"\" is invalid: metadata.name: Required value: name or generateName is required\n","time":"2019-04-19T16:35:06Z"}
+{"level":"info","msg":"Finding issues in commit messages using git format\n","time":"2019-04-19T16:35:06Z"}
+{"level":"warning","msg":"No release found for *****/quickstart and tag v0.0.1 so creating a new release\n","time":"2019-04-19T16:35:07Z"}
+{"level":"info","msg":"Updated the release information at https://github.com/*****/quickstart/releases/tag/v0.0.1\n","time":"2019-04-19T16:35:07Z"}
+{"level":"info","msg":"generated: /workspace/source/charts/quickstart/templates/release.yaml\n","time":"2019-04-19T16:35:07Z"}
+{"level":"info","msg":"Created Release quickstart-0-0-1 resource in namespace **\n","time":"2019-04-19T16:35:07Z"}
+{"level":"info","msg":"Updating PipelineActivity *****-quickstart-master-1 with version 0.0.1\n","time":"2019-04-19T16:35:07Z"}
+{"level":"info","msg":"Updated PipelineActivities *****-quickstart-master-1 with release notes URL: https://github.com/*****/quickstart/releases/tag/v0.0.1\n","time":"2019-04-19T16:35:08Z"}
+Step: build-step-promote-helm-release:
+
+{"level":"warning","msg":"No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080\n","time":"2019-04-19T16:35:10Z"}
+{"level":"info","msg":"Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io\n","time":"2019-04-19T16:35:12Z"}
+{"level":"info","msg":"Successfully added Helm repository chartmuseum.jenkins-x.io.\n","time":"2019-04-19T16:35:13Z"}
+{"level":"info","msg":"Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080\n","time":"2019-04-19T16:35:13Z"}
+{"level":"info","msg":"Successfully added Helm repository jenkins-x-chartmuseum.\n","time":"2019-04-19T16:35:13Z"}
+{"level":"warning","msg":"No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080\n","time":"2019-04-19T16:35:14Z"}
+{"level":"info","msg":"Uploading chart file quickstart-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts\n","time":"2019-04-19T16:35:14Z"}
+{"level":"info","msg":"Received 201 response: {\"saved\":true}\n","time":"2019-04-19T16:35:14Z"}
+Step: build-step-promote-**-promote:
+
+{"level":"warning","msg":"prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410","time":"2019-04-19T16:35:15Z"}
+{"level":"info","msg":"Promoting app quickstart version 0.0.1 to namespace **-staging\n","time":"2019-04-19T16:35:15Z"}
+{"level":"info","msg":"Created Pull Request: https://github.com/*****/environment-**-staging/pull/1\n\n","time":"2019-04-19T16:35:18Z"}
+{"level":"info","msg":"Pull Request https://github.com/*****/environment-**-staging/pull/1 is merged at sha 5c0553b8224163bf96d9fab12bed228c757a320c\n","time":"2019-04-19T16:35:42Z"}
+{"level":"info","msg":"Pull Request merged but we are not waiting for the update pipeline to complete!","time":"2019-04-19T16:35:42Z"}
+{"level":"warning","msg":"Could not find the service URL in namespace **-staging for names quickstart, **-quickstart, **-staging-quickstart\n","time":"2019-04-19T16:35:42Z"}
